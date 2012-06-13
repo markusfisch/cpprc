@@ -59,8 +59,8 @@ int main( int argc, char **argv )
 							<< endl;
 						return 0;
 					case 'v':
-						cout << "C++ Resource Compiler 0.4.2 "
-							<< "(c) 2007 Markus Fisch <mf@markusfisch.de>"
+						cout << "C++ Resource Compiler 0.4.3 "
+							<< "(c) 2006 Markus Fisch <mf@markusfisch.de>"
 							<< endl;
 						return 0;
 					case 'i':

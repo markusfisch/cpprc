@@ -60,7 +60,7 @@ void Compiler::add( const char *f )
 	data << "// " << f << endl;
 
 	for( int column = 0, c = 0; ;
-		column += 6, offset++ )
+		column += 6, ++offset )
 	{
 		int c = in.get();
 
@@ -89,7 +89,7 @@ int Compiler::hash( const char *s ) const
 {
 	int h;
 
-	for( h = *(s++) % HashMax; *s; s++ )
+	for( h = *(s++) % HashMax; *s; ++s )
 		h = (h*128+*s) % HashMax;
 
 	return h;
@@ -260,7 +260,7 @@ istream *Resource::get( const string &fileName )\n\
 	int h = hash( fileName.substr( 1 ).c_str() );\n\
 	const struct RESOURCE_INDEX *r = resources_index;\n\
 \n\
-	for( ; r->hash && r->hash != h; r++ );\n\
+	for( ; r->hash && r->hash != h; ++r );\n\
 \n\
 	if( !r->hash )\n\
 		return 0;\n\
@@ -305,7 +305,7 @@ int " << fileName << "::hash( const char *s )\n\
 {\n\
 	int h;\n\
 \n\
-	for( h = *(s++) % " << HashMax << "; *s; s++ )\n\
+	for( h = *(s++) % " << HashMax << "; *s; ++s )\n\
 		h = (h*128+*s) % " << HashMax << ";\n\
 \n\
 	return h;\n\
@@ -375,7 +375,7 @@ wxInputStream *" << fileName << "::Get( const wxString &fileName )\n\
 	int hash = Hash( fileName.Mid( 1 ).mb_str( wxConvUTF8 ) );\n\
 	const struct RESOURCE_INDEX *r = resources_index;\n\
 \n\
-	for( ; r->hash && r->hash != hash; r++ );\n\
+	for( ; r->hash && r->hash != hash; ++r );\n\
 \n\
 	if( !r->hash )\n\
 		return 0;\n\
@@ -393,7 +393,7 @@ int " << fileName << "::Hash( const char *s )\n\
 {\n\
 	int h;\n\
 \n\
-	for( h = *(s++) % " << HashMax << "; *s; s++ )\n\
+	for( h = *(s++) % " << HashMax << "; *s; ++s )\n\
 		h = (h*128+*s) % " << HashMax << ";\n\
 \n\
 	return h;\n\

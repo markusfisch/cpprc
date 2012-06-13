@@ -1,18 +1,18 @@
 CPPRC = cpprc
-PROBE = probe
+TEST = test
 
 CXX = g++
-FLAGS = -O3
+CXXFLAGS = -O3
 
-all:	$(CPPRC) $(PROBE)
+all:	$(CPPRC)
 
 $(CPPRC): Compiler.cpp main.cpp
-	$(CXX) $(FLAGS) -o $@ Compiler.cpp main.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(PROBE): $(CPPRC) probe.cpp
+$(TEST): test.cpp $(CPPRC)
 	./$(CPPRC) Makefile $(CPPRC)
-	$(CXX) $(FLAGS) -o $@ Resource.cpp probe.cpp
-	./$(PROBE)
+	$(CXX) $(CXXFLAGS) -o $@ Resource.cpp $<
+	./$(TEST)
 
 clean:
-	rm -rf $(CPPRC) $(PROBE) Resource.*
+	rm -rf $(CPPRC) $(TEST) Resource.*

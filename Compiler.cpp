@@ -1,10 +1,10 @@
 /*
  *   O         ,-
- *  ° o    . -´  '     ,-
- *   °  .´        ` . ´,´
- *     ( °   ))     . (
- *      `-;_    . -´ `.`.
- *          `._'       ´
+ *  Â° o    . -Â´  '     ,-
+ *   Â°  .Â´        ` . Â´,Â´
+ *     ( Â°   ))     . (
+ *      `-;_    . -Â´ `.`.
+ *          `._'       Â´
  *
  * Copyright (c) 2006 Markus Fisch <mf@markusfisch.de>
  *
@@ -62,7 +62,7 @@ void Compiler::add( const char *f )
 	for( int column = 0, c = 0; ;
 		column += 6, ++offset )
 	{
-		int c = in.get();
+		c = in.get();
 
 		if( in.eof() )
 			break;
